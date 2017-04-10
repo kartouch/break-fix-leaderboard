@@ -8,9 +8,9 @@
 */
 
 body {
-  background: radial-gradient(ellipse at bottom, #111922 0%, #090a0f 100%);
+  background: radial-gradient(ellipse at bottom, #0b1016 0%, #020304 100%);
   height: 100vh;
-  font-size: 1.5em;
+  font-size: 1.8em;
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,7 +20,7 @@ body {
 
 pl-leaderboard {
   font-family: 'Overpass', sans-serif;
-  color: #fae8e8;
+  color: rgba(250,232,232,.95);
   height: 100vh;
   position: relative;
   z-index: 2;
@@ -36,19 +36,14 @@ pl-leaderboard {
 pl-leaderboard {
 
   hgroup {
-    //move this below the titles
-    border-bottom: 1px solid rgba(255, 255, 255, .15);
-    padding-bottom: 3vh;
-    margin: 0 auto 2.5vh;
-    max-width: 95%;
+    line-height: 1.4;
 
     .leaders-header {
-      font-size: 3.2em;
+      font-size: 3.5em;
       font-weight: 800;
       text-align: center;
       text-transform: uppercase;
-      margin: 3vh auto 0;
-      line-height: 1.65;
+      margin: 2vh auto 0;
       word-wrap: normal;
       letter-spacing: 3px;
 
@@ -56,18 +51,24 @@ pl-leaderboard {
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       color: #38495a;
+      vertical-align: middle;
+
+      &:before {
+        content:url('../../rh-icon-hacker.svg');
+        margin-right: 1%;
+      }
     }
 
     .challenge-subtitle {
-      font-size: 1.5em;
+      font-size: 2em;
       text-align: center;
-      color: #d8cdcd;
+      color: #c5c5c5;
     }
   }
 
   article {
     margin: 1.5vh 0;
-    width: 100%;
+    max-height: 100vh;
 
     section {
       width: 100%;
@@ -91,10 +92,12 @@ pl-leaderboard {
 */
 
 pl-leaderboard article section ul.leader-titles {
-  margin-bottom: .8vh;
+  margin-bottom: 1.5vh;
+  padding-bottom: 1.5vh;
+  border-bottom: 1px solid rgba(255, 255, 255, .15);
 
   li {
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: 600;
     letter-spacing: .5px;
     padding: 1vh 3.2% .2vh;
@@ -145,7 +148,7 @@ pl-leaderboard article section ul.leaders li {
     padding: 1.3% 3.5% 1.3%;
 
     .score::before {
-      content:url('../../rh-icon-hacker.svg');
+      content:url('../../rh-icon-award-ribbon.svg');
       margin-right: 5%;
     }
   }
@@ -167,12 +170,12 @@ pl-leaderboard article section ul.leaders li {
 @media (min-width: 1024px) {
 
   pl-leaderboard article h1.leaders-header {
-    max-width: 70vw;
+    max-width: 80vw;
   }
 
   pl-leaderboard article {
     margin: 0 auto;
-    max-width: 70vw;
+    max-width: 80vw;
     max-height: 80vh;
   }
 }
@@ -227,26 +230,26 @@ ul.leaders {
 
 
 /* star background animation */
-@function multiple-box-shadow ($n) {
-  $value: '#{random(5000)}px #{random(5000)}px #FFF';
+@function multi-box-shadow ($n) {
+  $value: '#{random(5000)}px #{random(5000)}px rgba(220,220,220,.8)';
 
   @for $i from 2 through $n {
-    $value: '#{$value} , #{random(5000)}px #{random(5000)}px #FFF';
+    $value: '#{$value} , #{random(5000)}px #{random(5000)}px rgba(220,220,220,.8)';
   }
 
   @return unquote($value);
 }
 
-$shadows-small:  multiple-box-shadow(3000);
-$shadows-medium: multiple-box-shadow(1000);
-$shadows-big:    multiple-box-shadow(500);
+$shadow-sm: multi-box-shadow(3000);
+$shadow-md: multi-box-shadow(1000);
+$shadow-lg: multi-box-shadow(500);
 
 #stars-1 {
   width: 1px;
   height: 1px;
   background: transparent;
-  box-shadow: $shadows-small;
-  animation: animStar 50s linear infinite;
+  box-shadow: $shadow-sm;
+  animation: animateStars 100s linear infinite;
 
   &:after {
     content: " ";
@@ -255,7 +258,7 @@ $shadows-big:    multiple-box-shadow(500);
     width: 1px;
     height: 1px;
     background: transparent;
-    box-shadow: $shadows-small;
+    box-shadow: $shadow-sm;
   }
 }
 
@@ -264,8 +267,8 @@ $shadows-big:    multiple-box-shadow(500);
   width: 2px;
   height: 2px;
   background: transparent;
-  box-shadow: $shadows-medium;
-  animation: animStar 100s linear infinite;
+  box-shadow: $shadow-md;
+  animation: animateStars 120s linear infinite;
 
   &:after {
     content: " ";
@@ -274,7 +277,7 @@ $shadows-big:    multiple-box-shadow(500);
     width: 2px;
     height: 2px;
     background: transparent;
-    box-shadow: $shadows-medium;
+    box-shadow: $shadow-md;
   }
 }
 
@@ -282,8 +285,8 @@ $shadows-big:    multiple-box-shadow(500);
   width: 2.5px;
   height: 2.5px;
   background: transparent;
-  box-shadow: $shadows-big;
-  animation: animStar 150s linear infinite;
+  box-shadow: $shadow-lg;
+  animation: animateStars 150s linear infinite;
 
     &:after {
       content: " ";
@@ -292,13 +295,11 @@ $shadows-big:    multiple-box-shadow(500);
       width: 3px;
       height: 3px;
       background: transparent;
-      box-shadow: $shadows-big;
+      box-shadow: $shadow-lg;
     }
 }
 
-
-
-@keyframes animStar {
+@keyframes animateStars {
   from {
     transform: translateY(0px);
   }
@@ -314,13 +315,13 @@ $shadows-big:    multiple-box-shadow(500);
   -----------------------
 */
 
-pl-leaderboard article section ul.leaders li:first-child   { background-color: rgba(235,1,1,.60); }
-pl-leaderboard article section ul.leaders li:nth-child(2)  { background-color: rgba(224,0,0,.60); }
-pl-leaderboard article section ul.leaders li:nth-child(3)  { background-color: rgba(210,0,0,.60); }
-pl-leaderboard article section ul.leaders li:nth-child(4)  { background-color: rgba(198,1,1,.60); }
-pl-leaderboard article section ul.leaders li:nth-child(5)  { background-color: rgba(185,1,1,.60); }
-pl-leaderboard article section ul.leaders li:nth-child(6)  { background-color: rgba(172,0,0,.60); }
-pl-leaderboard article section ul.leaders li:nth-child(7)  { background-color: rgba(158,0,0,.60); }
-pl-leaderboard article section ul.leaders li:nth-child(8)  { background-color: rgba(146,0,0,.60); }
-pl-leaderboard article section ul.leaders li:nth-child(9)  { background-color: rgba(135,1,1,.60); }
-pl-leaderboard article section ul.leaders li:nth-child(10) { background-color: rgba(123,0,0,.60); }
+pl-leaderboard article section ul.leaders li:first-child   { background-color: rgba(235,1,1,.65); }
+pl-leaderboard article section ul.leaders li:nth-child(2)  { background-color: rgba(224,0,0,.65); }
+pl-leaderboard article section ul.leaders li:nth-child(3)  { background-color: rgba(210,0,0,.65); }
+pl-leaderboard article section ul.leaders li:nth-child(4)  { background-color: rgba(198,1,1,.65); }
+pl-leaderboard article section ul.leaders li:nth-child(5)  { background-color: rgba(185,1,1,.65); }
+pl-leaderboard article section ul.leaders li:nth-child(6)  { background-color: rgba(172,0,0,.65); }
+pl-leaderboard article section ul.leaders li:nth-child(7)  { background-color: rgba(158,0,0,.65); }
+pl-leaderboard article section ul.leaders li:nth-child(8)  { background-color: rgba(146,0,0,.65); }
+pl-leaderboard article section ul.leaders li:nth-child(9)  { background-color: rgba(135,1,1,.65); }
+pl-leaderboard article section ul.leaders li:nth-child(10) { background-color: rgba(123,0,0,.65); }
