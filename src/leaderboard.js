@@ -9,7 +9,7 @@
     leaderboardservice.$inject = ['$http'];
     LeaderboardController.$inject = ['$scope', '$interval', 'leaderboardservice'];
 
-    var serviceUrl = 'leaders.json',
+    var serviceUrl = 'http://85.190.180.154/leaderboard/cee-su-004',
         maxLeaders = 10,
         updateInterval = 5000;
 
@@ -38,7 +38,7 @@
                 /*
                  * crazy one liner
                  */
-                return _.take(_.filter(_.sortByOrder(_.toArray(response.data), 'ping.hiscore', false), 'ping.hiscore'), maxLeaders);
+                return _.take(_.filter(_.sortByOrder(_.toArray(response.data), 'score', false), 'score'), maxLeaders);
             }
 
             function getLeadersFailed(error) {

@@ -1,7 +1,11 @@
+<div id='stars'></div>
+<div id='stars2'></div>
+<div id='stars3'></div>
 
 <article class="table">
   <section class="table-cell">
-    <h1 class="leaders-header"></h1>
+    <h1 class="leaders-header">Break Fix</h1>
+    <h2 class="challenge-subtitle">Challenge 1</h2>
     <ul class="leader-titles">
       <li>
         <span class="rank">Rank</span>
@@ -12,8 +16,8 @@
     <ul class="leaders">
       <li ng-repeat="leader in vm.leaders">
         <span class="rank">{{::$index + 1 | ordinal}}</span>
-        <span class="username">{{::leader.gamerID}}</span>
-        <span class="score">{{::leader.ping.hiscore}}</span>
+        <span class="username">{{::leader.visitor}}</span>
+        <span class="score">{{::leader.score}}</span>
       </li>
     </ul>
   </section>
