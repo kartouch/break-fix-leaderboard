@@ -207,11 +207,11 @@ pl-leaderboard article section ul.leaders li {
 
 /* list fade animation */
 ul.leaders {
-    -webkit-animation: listfade linear 1.5s; /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: listfade linear 1.5s; /* Firefox < 16 */
-    -ms-animation: listfade linear 1.5s; /* Internet Explorer */
-    -o-animation: listfade linear 1.5s; /* Opera < 12.1 */
-    animation: listfade linear 1.5s;
+    -webkit-animation: listfade linear 2s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: listfade linear 2s; /* Firefox < 16 */
+    -ms-animation: listfade linear 2s; /* Internet Explorer */
+    -o-animation: listfade linear 2s; /* Opera < 12.1 */
+    animation: listfade linear 2s;
 
     -webkit-animation-iteration-count: 1;
     animation-iteration-count: 1;
