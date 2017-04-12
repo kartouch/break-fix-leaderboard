@@ -30,32 +30,18 @@
         };
 
         function getLeaders() {
-            return $http.get(
-                serviceUrl,
-                {
-                    headers: {
-                        'X-Parse-Application-Id': 'ENGAGE'
-                    },
-                })
+            return $http.get(serviceUrl)
                 .then(getLeadersComplete)
                 .catch(getLeadersFailed);
 
-            function getLeadersComplete(response) {
-                const leaders = _(response.data.results)
-                    .sortBy('score')
-                    .reverse()
-                    .uniqBy('name')
-                    .take(10)
-                    .value();
-
-                return leaders;
-            }
+                function getLeadersComplete(response) {
+                    return _.take(_.filter(_.sortByOrder(_.toArray(response.data), 'score', false), 'score'), maxLeaders);
+                }
 
             function getLeadersFailed(error) {
                 /*
                  * there was an error
                  */
-                console.error(error);
             }
         }
     }
