@@ -7,73 +7,88 @@
   -----------------------
 */
 
-body {
-  background: radial-gradient(ellipse at bottom, #0b1016 0%, #020304 100%);
-  height: 100vh;
-  font-size: 12px;
-  overflow: hidden;
+$background-color:                    #020304;
+$font-base:                              12px;
+$font-heading:                            5em;
+$font-subtitle:                         2.5em;
+$font-table:                            2.5em;
+$font-titles:                           1.8em;
+$font-weight-light:                       500;
+$font-weight-bold:                        600;
+$font-weight-heavy:                       800;
+$color-white:             rgba(250,232,232,1);
+$color-grey:                 rgba(56,73,90,1);
+
+
+html {
+  height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
-pl-leaderboard {
+body {
+  margin: 0;
+  height: 100%;
   font-family: 'Overpass', sans-serif;
-  color: rgba(250,232,232,.95);
-  height: 100vh;
-  position: relative;
-  z-index: 2;
+  font-size: $font-base;
+  font-weight: $font-weight-light;
+  background: radial-gradient(ellipse at bottom, #0b1016 0%, $background-color 100%);
+  background-color: $background-color;
+  background-position: top center;
+  overflow: hidden;
 }
 
-
-/*
-  -----------------------
-     position elements
-  -----------------------
-*/
-
 pl-leaderboard {
+  position: relative;
+  height: 100%;
+  z-index: 2;
+  color: $color-white;
 
   hgroup {
     line-height: 1.4;
     margin-bottom: 1vh;
 
     .leaders-header {
-      font-size: 4.5em;
-      font-weight: 800;
+      font-size: $font-heading;
+      font-weight: $font-weight-heavy;
       text-align: center;
       text-transform: uppercase;
       margin: 2.5vh auto 0;
       word-wrap: normal;
       letter-spacing: 3px;
-
-      background-image: -webkit-linear-gradient(#fff, #38495a);
+      background-image: -webkit-linear-gradient($color-white, $color-grey);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      color: #38495a;
-      vertical-align: middle;
+      color: $color-white;
 
-      &:before {
+      .hacker-svg:before {
         content:url('../../rh-icon-hacker.svg');
-        margin-right: 1%;
       }
+      
+      // This is another option for the hacker icon ->
+      //   You'd also remove .hacker-svg from leaderboard.html
+      // &:before {
+      //   content:url('../../rh-icon-hacker.svg');
+      //   margin-right: 1%;
+      // }
     }
 
     .challenge-subtitle {
-      font-size: 2.5em;
+      font-size: $font-subtitle;
       text-align: center;
-      color: #c5c5c5;
+      color: $color-white;
     }
   }
 
   article {
     margin: 1.5vh 0;
-    max-height: 100vh;
+    height: 100%;
+    max-height: 100%;
 
     section {
       width: 100%;
-      vertical-align: middle;
 
       ul {
         margin: 0 auto;
@@ -92,17 +107,17 @@ pl-leaderboard {
   -----------------------
 */
 
-pl-leaderboard article section ul.leader-titles {
+ul.leader-titles {
   margin-bottom: 1.5vh;
-  padding-bottom: 1.5vh;
-  border-bottom: 1px solid rgba(255, 255, 255, .15);
+  padding-bottom: 1vh;
+  border-bottom: 1px solid rgba(255, 255, 255, .25);
 
   li {
-    font-size: 1.5em;
-    font-weight: 600;
+    font-size: $font-titles;
+    font-weight: $font-weight-bold;
     letter-spacing: .5px;
     padding: 1% 3.2% .2%;
-    opacity: .65;
+    opacity: .675;
   }
 }
 
@@ -119,19 +134,19 @@ pl-leaderboard article section ul li {
   align-items: center;
 
   .rank {
-    width: 14%;
-    max-width: 14%;
+    width: 15%;
+    max-width: 15%;
   }
 
   .username {
-    width: 68%;
-    max-width: 68%;
+    width: 60%;
+    max-width: 60%;
     word-break: break-all;
   }
 
   .score {
-    width: 18%;
-    max-width: 18%;
+    width: 25%;
+    max-width: 25%;
     text-align: right;
   }
 }
