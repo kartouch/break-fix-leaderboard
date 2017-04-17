@@ -11,14 +11,14 @@ $background-color:                    #020304;
 $background-color-blue:               #002235;
 $font-base:                              12px;
 $font-base-lg:                           16px;
-$font-heading:                          5.5em;
+$font-heading:                          4.5em;
 $font-subtitle:                         2.5em;
-$font-table:                              2em;
-$font-titles:                           1.8em;
+$font-table:                            1.8em;
+$font-titles:                           1.5em;
 $font-weight-light:                       500;
 $font-weight-bold:                        600;
 $font-weight-heavy:                       800;
-$color-white:             rgba(250,232,232,1);
+$color-white:           rgba(250,232,232,.95);
 $color-grey:                 rgba(56,73,90,1);
 
 
@@ -82,7 +82,7 @@ pl-leaderboard {
       font-size: $font-subtitle;
       text-align: center;
       color: $color-white;
-      opacity: .675;
+      opacity: .7;
     }
   }
 
@@ -114,13 +114,13 @@ pl-leaderboard {
 ul.leader-titles {
   margin-bottom: 1.5vh;
   padding-bottom: 1vh;
-  border-bottom: 1px solid rgba(255, 255, 255, .25);
+  border-bottom: 1px solid rgba(255, 255, 255, .2);
 
   li {
     font-size: $font-titles;
     font-weight: $font-weight-bold;
     letter-spacing: .5px;
-    padding: 1% 3.2% .2%;
+    padding: 0 2% .5%;
     opacity: .675;
   }
 }
@@ -159,20 +159,20 @@ ul.leaders li {
   font-size: $font-table;
   font-weight: $font-weight-light;
   letter-spacing: 1px;
-  padding: 2% 3.5% 2%;
+  padding: 2% 2% 2%;
   height: 100%;
   background-color: rgba(102,0,0,.8);
   border-bottom: 1px solid rgba(0,0,0,.5);
 
   &:first-child {
-    padding: .65% 3.5% .8%;
+    padding: .65% 3% .8%;
 
     .score::before {
       content: url('../../rh-icon-award-ribbon.svg');
-      margin-right: 5%;
+      margin-right: 4%;
     }
   }
-  
+
   .score {
     display: flex;
     align-items: center;
@@ -224,15 +224,15 @@ ul.leaders li {
   -----------------------
 */
 
-pl-leaderboard article section ul.leaders li:first-child   { background-color: rgba(190,1,1,.8); }
-pl-leaderboard article section ul.leaders li:nth-child(2)  { background-color: rgba(180,1,1,.8); }
-pl-leaderboard article section ul.leaders li:nth-child(3)  { background-color: rgba(169,0,0,.8); }
-pl-leaderboard article section ul.leaders li:nth-child(4)  { background-color: rgba(160,0,0,.8); }
-pl-leaderboard article section ul.leaders li:nth-child(5)  { background-color: rgba(154,1,1,.8); }
-pl-leaderboard article section ul.leaders li:nth-child(6)  { background-color: rgba(145,1,1,.8); }
-pl-leaderboard article section ul.leaders li:nth-child(7)  { background-color: rgba(134,1,1,.8); }
-pl-leaderboard article section ul.leaders li:nth-child(8)  { background-color: rgba(124,0,0,.8); }
-pl-leaderboard article section ul.leaders li:nth-child(9)  { background-color: rgba(112,0,0,.8); }
-pl-leaderboard article section ul.leaders li:nth-child(10) { background-color: rgba(102,0,0,.8); }
+pl-leaderboard article section ul.leaders li:first-child   { background-color: rgba(190,1,1,.75); }
+pl-leaderboard article section ul.leaders li:nth-child(2)  { background-color: rgba(180,1,1,.75); }
+pl-leaderboard article section ul.leaders li:nth-child(3)  { background-color: rgba(169,0,0,.75); }
+pl-leaderboard article section ul.leaders li:nth-child(4)  { background-color: rgba(160,0,0,.75); }
+pl-leaderboard article section ul.leaders li:nth-child(5)  { background-color: rgba(154,1,1,.75); }
+pl-leaderboard article section ul.leaders li:nth-child(6)  { background-color: rgba(145,1,1,.75); }
+pl-leaderboard article section ul.leaders li:nth-child(7)  { background-color: rgba(134,1,1,.75); }
+pl-leaderboard article section ul.leaders li:nth-child(8)  { background-color: rgba(124,0,0,.75); }
+pl-leaderboard article section ul.leaders li:nth-child(9)  { background-color: rgba(112,0,0,.75); }
+pl-leaderboard article section ul.leaders li:nth-child(10) { background-color: rgba(102,0,0,.75); }
 
 @import "animations.scss";
