@@ -67,7 +67,7 @@ pl-leaderboard {
       color: $color-white;
 
       .hacker-svg::before {
-        content:url('../../rh-icon-hacker.svg');
+        content:url('../../assets/rh-icon-hacker.svg');
       }
 
       // This is another option for the hacker icon ->
@@ -165,10 +165,10 @@ ul.leaders li {
   border-bottom: 1px solid rgba(0,0,0,.5);
 
   &:first-child {
-    padding: .65% 3% .8%;
+    padding: .65% 2% .8%;
 
     .score::before {
-      content: url('../../rh-icon-award-ribbon.svg');
+      content: url('../../assets/rh-icon-award-ribbon.svg');
       margin-right: 4%;
     }
   }
