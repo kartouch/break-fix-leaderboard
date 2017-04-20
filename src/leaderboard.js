@@ -29,7 +29,7 @@
       serviceUrl = serviceUrls[serviceUrlIndex];
       serviceUrlIndex += 1;
       serviceUrlIndex %= serviceUrls.length;
-    }, 1000);
+    }, 5000);
 
     function leaderboard() {
         var directive = {
