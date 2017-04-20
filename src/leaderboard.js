@@ -21,9 +21,9 @@
           'http://85.190.180.154/leaderboard/cee-su-009'
         ],
         serviceUrlIndex = 0,
-        serviceUrl = serviceUrls[serviceUrlIndex],
         maxLeaders = 10,
-        updateInterval = 500;
+        updateInterval = 500,
+        serviceUrl = serviceUrls[serviceUrlIndex];
 
     setInterval(function () {
       serviceUrl = serviceUrls[serviceUrlIndex];
@@ -53,13 +53,20 @@
                 .catch(getLeadersFailed);
 
                 function getLeadersComplete(response) {
-                    return _.take(_.filter(_.sortByOrder(_.toArray(response.data), 'score', false), 'score'), maxLeaders);
+                  const leaders = _(response.data)
+                      .sortBy('score')
+                      .uniqBy('visitor')
+                      .take(10)
+                      .value();
+
+                  return leaders;
                 }
 
             function getLeadersFailed(error) {
-                /*
-                 * there was an error
-                 */
+              /*
+               * there was an error
+               */
+              console.error(error);
             }
         }
     }
