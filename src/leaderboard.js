@@ -9,9 +9,27 @@
     leaderboardservice.$inject = ['$http'];
     LeaderboardController.$inject = ['$scope', '$interval', 'leaderboardservice'];
 
-    var serviceUrl = 'http://85.190.180.154/leaderboard/cee-su-004',
+    var serviceUrls = [
+          'http://85.190.180.154/leaderboard/cee-su-001',
+          'http://85.190.180.154/leaderboard/cee-su-002',
+          'http://85.190.180.154/leaderboard/cee-su-003',
+          'http://85.190.180.154/leaderboard/cee-su-004',
+          'http://85.190.180.154/leaderboard/cee-su-005',
+          'http://85.190.180.154/leaderboard/cee-su-006',
+          'http://85.190.180.154/leaderboard/cee-su-007',
+          'http://85.190.180.154/leaderboard/cee-su-008',
+          'http://85.190.180.154/leaderboard/cee-su-009'
+        ],
+        serviceUrlIndex = 0,
+        serviceUrl = serviceUrls[serviceUrlIndex],
         maxLeaders = 10,
-        updateInterval = 5000;
+        updateInterval = 500;
+
+    setInterval(function () {
+      serviceUrl = serviceUrls[serviceUrlIndex];
+      serviceUrlIndex += 1;
+      serviceUrlIndex %= serviceUrls.length;
+    }, 1000);
 
     function leaderboard() {
         var directive = {
