@@ -22,7 +22,7 @@
         ],
         serviceUrlIndex = 0,
         maxLeaders = 10,
-        updateInterval = 500,
+        updateInterval = 5000,
         serviceUrl = serviceUrls[serviceUrlIndex];
 
     setInterval(function () {
