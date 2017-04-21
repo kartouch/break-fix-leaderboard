@@ -51,14 +51,14 @@ pl-leaderboard {
 
   hgroup {
     line-height: 1.4;
-    margin-bottom: 1.8vh;
+    margin: 4% 0 3%;
 
     .leaders-header {
       font-size: $font-heading;
       font-weight: $font-weight-heavy;
       text-align: center;
       text-transform: uppercase;
-      margin: 2.5vh auto .2vh;
+      margin: 0 auto .2vh;
       word-wrap: normal;
       letter-spacing: 3px;
       background-image: -webkit-linear-gradient($color-white, $color-grey);
@@ -69,13 +69,6 @@ pl-leaderboard {
       .hacker-svg::before {
         content:url('../../assets/rh-icon-hacker.svg');
       }
-
-      // This is another option for the hacker icon ->
-      //   You'd also remove .hacker-svg from leaderboard.html
-      // &::before {
-      //   content:url('../../rh-icon-hacker.svg');
-      //   margin-right: 1%;
-      // }
     }
 
     .challenge-subtitle {
@@ -159,13 +152,13 @@ ul.leaders li {
   font-size: $font-table;
   font-weight: $font-weight-light;
   letter-spacing: 1px;
-  padding: 2% 2.3% 2%;
+  padding: 2.1% 2.3% 2.2%;
   height: 100%;
   background-color: rgba(102,0,0,.8);
   border-bottom: 1px solid rgba(0,0,0,.5);
 
   &:first-child {
-    padding: .65% 2.3% .8%;
+    padding: .5% 2.3% .5%;
 
     .score::before {
       content: url('../../assets/rh-icon-award-ribbon.svg');
