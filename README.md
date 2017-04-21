@@ -1,7 +1,7 @@
 # Break Fix Leaderboard
 
 Summit leaderboard for the Break Fix challenge.
-UPDATE: Monday, April 17th at 5:30pm
+UPDATE: Friday, April 21st at 10:00am
 
 
 ## Development commands
@@ -26,7 +26,10 @@ leaderboard.js explains how the data is passed through.
 
 ## To Do:
 
-  Allyson should provide a printed demo for whoever is manning this booth with instructions on how to manage the color profile.
+  Fade Animation & Transition: Adjust the rotation.
+    - The first endpoint currently repeats on the first load, but it's fine for every rotation after.
+        - This isn't a huge deal since the leaderboard can rotate well before guests arrive, but I'll work on fixing this.
+    - Transition challenge titles
 
-  Animate through the 9 endpoints using a transition based on time interval 10-20 seconds.
-  - Test the combination of animations and determine the best setup for Break Fix.
+  Local Overpass font
+    - This might be a last minute addition (stay tuned)
