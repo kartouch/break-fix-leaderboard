@@ -20,16 +20,34 @@
           'http://85.190.180.154/leaderboard/cee-su-008',
           'http://85.190.180.154/leaderboard/cee-su-009'
         ],
+        challengeTitles = [
+          'Red Hat Insights',
+          'Red Hat JBoss EAP7',
+          'Red Hat OpenShift',
+          'Red Hat Satellite',
+          'Red Hat OpenStack Platform',
+          'Red Hat Ceph Storage',
+          'Red Hat Jboss EAP7',
+          'Red Hat OpenStack Platform',
+          'Red Hat Enterprise Linux 7'
+        ],
         serviceUrlIndex = 0,
         maxLeaders = 10,
         updateInterval = 5000,
         serviceUrl = serviceUrls[serviceUrlIndex];
 
-    setInterval(function () {
-      serviceUrl = serviceUrls[serviceUrlIndex];
-      serviceUrlIndex += 1;
-      serviceUrlIndex %= serviceUrls.length;
-    }, 5000);
+    function setSubtitle($index) {
+      subtitle.innerHTML = challengeTitles[$index];
+    }
+
+    function timerInterval() {
+      var interval = setInterval(function () {
+        serviceUrlIndex += 1;
+        serviceUrlIndex %= serviceUrls.length;
+        serviceUrl = serviceUrls[serviceUrlIndex];
+        setSubtitle(serviceUrlIndex);
+      }, updateInterval);
+    }
 
     function leaderboard() {
         var directive = {
@@ -72,18 +90,20 @@
     }
 
     function LeaderboardController($scope, $interval, leaderboardservice) {
-        var vm = this;
-        vm.leaders = [];
+      var vm = this;
+      vm.leaders = [];
 
-        $interval(getLeaders, updateInterval);
-        getLeaders();
+      setSubtitle(0);
+      timerInterval();
+      $interval(getLeaders, updateInterval);
+      getLeaders();
 
-        function getLeaders() {
-            return leaderboardservice.getLeaders()
-                .then(function (data) {
-                    vm.leaders = data;
-                    return vm.leaders;
-                });
-        }
+      function getLeaders() {
+        return leaderboardservice.getLeaders()
+            .then(function (data) {
+                vm.leaders = data;
+                return vm.leaders;
+            });
+      }
     }
 }());

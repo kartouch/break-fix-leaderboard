@@ -1,8 +1,8 @@
 /*
- * Fade List Animation
+ * Fade Animation
  */
 
-ul.leaders .fade {
+.fade {
     -webkit-animation: listfade linear 2s; /* Safari, Chrome and Opera > 12.1 */
     -moz-animation: listfade linear 2s; /* Firefox < 16 */
     -ms-animation: listfade linear 2s; /* Internet Explorer */
