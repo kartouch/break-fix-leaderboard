@@ -1,19 +1,21 @@
 @import "compass/reset";
-@import url(https://fonts.googleapis.com/css?family=Overpass:500,600,800);
+@import url(https://fonts.googleapis.com/css?family=Overpass:500,600,800,900);
 
-$background-color:                    #020304;
-$background-color-blue:               #002235;
+$background-color:              rgba(2,3,4,1);
+$background-color-blue:     rgba(0,34,53,.55);
+$color-grey:                 rgba(34,44,54,1);
+$color-white:           rgba(250,232,232,.95);
 $font-base:                              12px;
-$font-base-lg:                           16px;
-$font-heading:                          4.2em;
+$font-base-lg:                           18px;
+$font-heading:                          4.5em;
 $font-subtitle:                         2.2em;
-$font-table:                            1.5em;
+$font-table:                            1.7em;
 $font-titles:                           1.3em;
 $font-weight-light:                       500;
 $font-weight-bold:                        600;
 $font-weight-heavy:                       800;
-$color-white:           rgba(250,232,232,.95);
-$color-grey:                 rgba(56,73,90,1);
+$font-weight-x-heavy:                     900;
+
 
 /*
   -----------------------
@@ -31,16 +33,15 @@ html {
 }
 
 body {
-  margin: 0;
-  height: 100%;
-  font-family: 'Overpass', sans-serif;
-  font-size: $font-base;
-  font-weight: $font-weight-light;
-  // background: radial-gradient(ellipse at bottom, #0b1016 0%, $background-color 100%);
-  background-image: radial-gradient(75% 90% at top, $background-color-blue, #000f18 100%);
+  background-image: radial-gradient(75% 90% at top, $background-color-blue, #000e16 100%);
   background-color: $background-color;
   background-position: top center;
   overflow: hidden;
+  font-family: 'Overpass', sans-serif;
+  font-size: $font-base;
+  font-weight: $font-weight-light;
+  height: 100%;
+  margin: 0;
 }
 
 pl-leaderboard {
@@ -51,38 +52,41 @@ pl-leaderboard {
 
   hgroup {
     line-height: 1.4;
-    margin: 4% 0 3%;
+    margin: 2% 0;
 
     .leaders-header {
-      font-size: $font-heading;
-      font-weight: $font-weight-heavy;
-      text-align: center;
-      text-transform: uppercase;
-      margin: 0 auto .2vh;
-      word-wrap: normal;
-      letter-spacing: 3px;
       background-image: -webkit-linear-gradient($color-white, $color-grey);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       color: $color-white;
+      font-size: $font-heading;
+      font-weight: $font-weight-heavy;
+      text-align: center;
+      text-transform: uppercase;
+      word-wrap: normal;
+      letter-spacing: 3px;
+      margin: 0 auto;
+
 
       .hacker-svg::before {
         content:url('../../assets/rh-icon-hacker.svg');
+        display: inline-block;
+        width: 7%;
       }
     }
 
     .challenge-subtitle {
       font-size: $font-subtitle;
-      text-align: center;
       color: $color-white;
-      opacity: .7;
+      text-align: center;
+      opacity: .8;
     }
   }
 
   article {
-    margin: 2vh 0;
-    height: 100%;
-    max-height: 100%;
+    margin: 0 auto;
+    max-width: 70%;
+    max-height: 85%;
 
     section {
       width: 100%;
@@ -108,10 +112,12 @@ ul.leader-titles {
   margin-bottom: 1.5vh;
   padding-bottom: 1vh;
   border-bottom: 1px solid rgba(255, 255, 255, .2);
+  text-transform: lowercase;
 
   li {
     font-size: $font-titles;
     font-weight: $font-weight-bold;
+    text-transform: uppercase;
     letter-spacing: .5px;
     padding: 0 2% .5%;
     opacity: .675;
@@ -131,67 +137,56 @@ pl-leaderboard article section ul li {
   align-items: center;
 
   .rank {
-    width: 15%;
-    max-width: 15%;
+    width: 12%;
+    max-width: 12%;
   }
 
   .username {
-    width: 60%;
-    max-width: 60%;
+    width:53%;
+    max-width: 53%;
     word-break: break-all;
   }
 
   .score {
-    width: 25%;
-    max-width: 25%;
+    width: 35%;
+    max-width: 35%;
     text-align: right;
   }
 }
 
 ul.leaders li {
-  font-size: $font-table;
-  font-weight: $font-weight-light;
-  letter-spacing: 1px;
-  padding: 2.1% 2.3% 2.2%;
-  height: 100%;
   background-color: rgba(102,0,0,.8);
   border-bottom: 1px solid rgba(0,0,0,.5);
+  font-size: $font-table;
+  font-weight: $font-weight-heavy;
+  letter-spacing: 2px;
+  padding: 2.4% 2.55%;
+  height: 100%;
+
 
   &:first-child {
-    padding: .5% 2.3% .5%;
+    // color: #f6c982;
+    font-weight: $font-weight-heavy;
 
-    .score::before {
-      content: url('../../assets/rh-icon-award-ribbon.svg');
-      margin-right: 4%;
-    }
+    // .score::before {
+    //   content: url('../../assets/rh-icon-award-ribbon.svg');
+    //   margin-right: 4%;
+    // }
   }
 
-  .score {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
+  // .score {
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: flex-end;
+  // }
 }
 
 
 /*
   -----------------------
-      media queries
+        scaling
   -----------------------
 */
-
-@media (min-width: 1024px) and (max-width: 1920px) {
-
-  h1.leaders-header {
-    max-width: 75vw;
-  }
-
-  pl-leaderboard article {
-    margin: 0 auto;
-    max-width: 75vw;
-    max-height: 80vh;
-  }
-}
 
 @media (min-width: 1920px) {
 
@@ -199,33 +194,29 @@ ul.leaders li {
     font-size: $font-base-lg;
   }
 
-  h1.leaders-header {
-    max-width: 68vw;
-  }
-
   pl-leaderboard article {
     margin: 0 auto;
-    max-width: 68vw;
-    max-height: 90vh;
+    max-width: 65%;
+    max-height: 80%;
   }
 }
 
 
 /*
   -----------------------
-    rank color gradient
+      list gradient
   -----------------------
 */
 
-pl-leaderboard article section ul.leaders li:first-child   { background-color: rgba(190,1,1,.75); }
-pl-leaderboard article section ul.leaders li:nth-child(2)  { background-color: rgba(180,1,1,.75); }
-pl-leaderboard article section ul.leaders li:nth-child(3)  { background-color: rgba(169,0,0,.75); }
-pl-leaderboard article section ul.leaders li:nth-child(4)  { background-color: rgba(160,0,0,.75); }
-pl-leaderboard article section ul.leaders li:nth-child(5)  { background-color: rgba(154,1,1,.75); }
-pl-leaderboard article section ul.leaders li:nth-child(6)  { background-color: rgba(145,1,1,.75); }
-pl-leaderboard article section ul.leaders li:nth-child(7)  { background-color: rgba(134,1,1,.75); }
-pl-leaderboard article section ul.leaders li:nth-child(8)  { background-color: rgba(124,0,0,.75); }
-pl-leaderboard article section ul.leaders li:nth-child(9)  { background-color: rgba(112,0,0,.75); }
-pl-leaderboard article section ul.leaders li:nth-child(10) { background-color: rgba(102,0,0,.75); }
+pl-leaderboard article section ul.leaders li:first-child   { background-color: lighten(rgba(190,1,1,.50), 8%); }
+pl-leaderboard article section ul.leaders li:nth-child(2)  { background-color: lighten(rgba(180,1,1,.50), 8%); }
+pl-leaderboard article section ul.leaders li:nth-child(3)  { background-color: lighten(rgba(169,0,0,.50), 8%); }
+pl-leaderboard article section ul.leaders li:nth-child(4)  { background-color: lighten(rgba(160,0,0,.50), 8%); }
+pl-leaderboard article section ul.leaders li:nth-child(5)  { background-color: lighten(rgba(154,1,1,.50), 8%); }
+pl-leaderboard article section ul.leaders li:nth-child(6)  { background-color: lighten(rgba(145,1,1,.50), 8%); }
+pl-leaderboard article section ul.leaders li:nth-child(7)  { background-color: lighten(rgba(134,1,1,.50), 8%); }
+pl-leaderboard article section ul.leaders li:nth-child(8)  { background-color: lighten(rgba(124,0,0,.50), 8%); }
+pl-leaderboard article section ul.leaders li:nth-child(9)  { background-color: lighten(rgba(112,0,0,.50), 8%); }
+pl-leaderboard article section ul.leaders li:nth-child(10) { background-color: lighten(rgba(102,0,0,.50), 8%); }
 
 @import "animations.scss";
