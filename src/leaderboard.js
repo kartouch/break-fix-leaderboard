@@ -9,43 +9,33 @@
     leaderboardservice.$inject = ['$http'];
     LeaderboardController.$inject = ['$scope', '$interval', 'leaderboardservice'];
 
-    var serviceUrls = [
-          'http://85.190.180.154/leaderboard/cee-su-001',
-          'http://85.190.180.154/leaderboard/cee-su-002',
-          'http://85.190.180.154/leaderboard/cee-su-003',
-          'http://85.190.180.154/leaderboard/cee-su-004',
-          'http://85.190.180.154/leaderboard/cee-su-005',
-          'http://85.190.180.154/leaderboard/cee-su-006',
-          'http://85.190.180.154/leaderboard/cee-su-007',
-          'http://85.190.180.154/leaderboard/cee-su-008',
-          'http://85.190.180.154/leaderboard/cee-su-009'
+    var baseurl = 'http://85.190.180.154/leaderboard/cee-su-',
+        challenges = [
+          { endpoint: baseurl + "001", title: 'Red Hat JBoss EAP7' },
+          { endpoint: baseurl + "002", title: 'Red Hat JBoss EAP7 2' },
+          { endpoint: baseurl + "003", title: 'Red Hat Enterprise Linux 7' },
+          { endpoint: baseurl + "004", title: 'Red Hat Insights' },
+          { endpoint: baseurl + "005", title: 'Red Hat OpenShift' },
+          { endpoint: baseurl + "006", title: 'Red Hat OpenStack Platform' },
+          { endpoint: baseurl + "007", title: 'Red Hat OpenStack Platform 2' },
+          { endpoint: baseurl + "008", title: 'Red Hat Satellite' },
+          { endpoint: baseurl + "009", title: 'Red Hat Ceph Storage' }
         ],
-        challengeTitles = [
-          'Red Hat Insights',
-          'Red Hat JBoss EAP7',
-          'Red Hat OpenShift',
-          'Red Hat Satellite',
-          'Red Hat OpenStack Platform',
-          'Red Hat Ceph Storage',
-          'Red Hat Jboss EAP7',
-          'Red Hat OpenStack Platform',
-          'Red Hat Enterprise Linux 7'
-        ],
-        serviceUrlIndex = 0,
+        i = 0,
         maxLeaders = 10,
         updateInterval = 5000,
-        serviceUrl = serviceUrls[serviceUrlIndex];
+        serviceUrl = challenges[i].endpoint;
 
     function setSubtitle($index) {
-      subtitle.innerHTML = challengeTitles[$index];
+      subtitle.innerHTML = challenges[$index].title;
     }
 
     function timerInterval() {
       var interval = setInterval(function () {
-        serviceUrlIndex += 1;
-        serviceUrlIndex %= serviceUrls.length;
-        serviceUrl = serviceUrls[serviceUrlIndex];
-        setSubtitle(serviceUrlIndex);
+        i += 1;
+        i %= challenges.length;
+        serviceUrl = challenges[i].endpoint;
+        setSubtitle(i);
       }, updateInterval);
     }
 
@@ -66,6 +56,7 @@
         };
 
         function getLeaders() {
+
             return $http.get(serviceUrl)
                 .then(getLeadersComplete)
                 .catch(getLeadersFailed);
