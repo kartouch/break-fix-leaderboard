@@ -11,13 +11,13 @@
 
     var baseurl = 'http://85.190.180.154/leaderboard/cee-su-',
         challenges = [
-          { endpoint: baseurl + "001", title: 'Red Hat JBoss EAP7', issue: 'classloading issue'},
-          { endpoint: baseurl + "002", title: 'Red Hat JBoss EAP7', issue: 'logging issue'},
+          { endpoint: baseurl + "001", title: 'Red Hat JBoss EAP7', issue: 'Classloading Issue'},
+          { endpoint: baseurl + "002", title: 'Red Hat JBoss EAP7', issue: 'Logging Issue'},
           { endpoint: baseurl + "003", title: 'Red Hat Enterprise Linux 7', issue: ''},
           { endpoint: baseurl + "004", title: 'Red Hat Insights', issue: ''},
           { endpoint: baseurl + "005", title: 'Red Hat OpenShift', issue: ''},
-          { endpoint: baseurl + "006", title: 'Red Hat OpenStack Platform', issue: 'launching new instance'},
-          { endpoint: baseurl + "007", title: 'Red Hat OpenStack Platform', issue: 'deleting security group'},
+          { endpoint: baseurl + "006", title: 'Red Hat OpenStack Platform', issue: 'Launching New Instance'},
+          { endpoint: baseurl + "007", title: 'Red Hat OpenStack Platform', issue: 'Deleting Security Group'},
           { endpoint: baseurl + "008", title: 'Red Hat Satellite', issue: ''},
           { endpoint: baseurl + "009", title: 'Red Hat Ceph Storage', issue: ''}
         ],
@@ -32,7 +32,7 @@
           subtitle.innerHTML = challenges[$index].title;
         }
         else {
-          subtitle.innerHTML = challenges[$index].title + " " + "<em style=\"color:#7992b0;\">{" + challenges[$index].issue + "}</em>";
+          subtitle.innerHTML = challenges[$index].title + " - " + "<span>" + challenges[$index].issue + "</span>";
         }
       }, 500);
     }

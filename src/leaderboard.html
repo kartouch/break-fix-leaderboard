@@ -18,7 +18,7 @@
     </ul>
     <ul class="leaders">
       <li ng-repeat="leader in vm.leaders" ng-view class="fade">
-        <span class="rank">{{::$index + 1 | ordinal}}</span>
+        <span class="rank">{{::$index + 1}}</span>
         <span class="username">{{::leader.visitor}}</span>
         <span class="score">{{::leader.score + "s"}}</span>
       </li>

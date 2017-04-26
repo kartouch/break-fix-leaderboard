@@ -1,19 +1,20 @@
 @import "compass/reset";
 @import url(https://fonts.googleapis.com/css?family=Overpass:500,600,800,900);
 
-$background-color:              rgba(2,3,4,1);
-$background-color-blue:     rgba(0,34,53,.55);
-$color-grey:                 rgba(34,44,54,1);
-$color-white:           rgba(250,232,232,.95);
-$font-base:                              12px;
-$font-base-lg:                           18px;
-$font-heading:                          3.8em;
-$font-medium:                           1.6em;
-$font-small:                            1.3em;
-$font-weight-light:                       500;
-$font-weight-bold:                        600;
-$font-weight-heavy:                       800;
-$font-weight-x-heavy:                     900;
+$background-color:                 rgba(2,3,4,1);
+$background-color-blue:        rgba(0,34,53,.55);
+$color-grey:                    rgba(34,44,54,1);
+$color-white:               rgba(252,250,249,.6);
+$font-base:                                 12px;
+$font-base-lg:                              18px;
+$font-heading:                             4.2em;
+$font-subtitle:                              2em;
+$font-medium:                              1.6em;
+$font-small:                               1.3em;
+$font-weight-light:                          500;
+$font-weight-bold:                           600;
+$font-weight-heavy:                          800;
+$font-weight-x-heavy:                        900;
 
 
 /*
@@ -50,10 +51,10 @@ pl-leaderboard {
 
   hgroup {
     line-height: 1.5;
-    margin: 1.8% 0 4%;
+    margin: 2% 0 4.5%;
 
     .leaders-header {
-      background-image: -webkit-linear-gradient($color-white, #0f3c69);
+      background-image: -webkit-linear-gradient(#F8AF3E, #ED5724);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       color: $color-white;
@@ -64,18 +65,20 @@ pl-leaderboard {
       word-wrap: normal;
       letter-spacing: 3px;
 
-      .hacker-svg::before {
-        content:url('../../assets/rh-icon-hacker.svg');
-        display: inline-block;
-        width: 5%;
-      }
+      // .hacker-svg::before {
+      //   content:url('../../assets/rh-icon-hacker.svg');
+      //   display: inline-block;
+      //   width: 5%;
+      // }
     }
 
     .challenge-subtitle {
       font-size: $font-medium;
       color: $color-white;
       text-align: center;
-      // line-height: 1.75;
+      //line-height: 1.75;
+      color: #b94b25;
+      font-weight: 600;
     }
 
     // .issue {
@@ -146,43 +149,84 @@ pl-leaderboard article section ul li {
   align-items: center;
 
   .rank {
-    width: 8%;
-    max-width: 8%;
+    width: 11%;
+    max-width: 11%;
+    // border-radius: 50%;
+    // width: 2em;
+    // height: 2em;
+    // text-align: center;
+    // background-color: grey;
+    // line-height: 70px;
+
+    &:after {
+      display: inline-block;
+      content: "th";
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: .4em;
+      vertical-align: top;
+      line-height: 1em;
+      margin: .15em 0 0 .2em;
+    }
   }
 
   .username {
-    width: 65%;
-    max-width: 65%;
+    width: 66%;
+    max-width: 66%;
     word-break: break-all;
   }
 
   .score {
-    width: 27%;
-    max-width: 27%;
+    width: 23%;
+    max-width: 23%;
     text-align: right;
+  }
+
+  &:nth-child(1) .rank:after {
+    content: "st";
+  }
+
+  &:nth-child(2) .rank:after {
+    content: "nd";
+  }
+
+  &:nth-child(3) .rank:after {
+    content: "rd";
   }
 }
 
 ul.leaders li {
   // background-color: rgba(102,0,0,.8);
-  border-bottom: 1px solid rgba(0,0,0,.5);
+  border-top: 1px solid rgba(0,0,0,.5);
   font-size: $font-medium;
-  font-weight: $font-weight-heavy;
+  font-weight: $font-weight-bold;
   letter-spacing: 2.2px;
-  padding: 2.3% 2.5%;
+  padding: 0 2.55%;
   height: 100%;
   color: #bdccd1;
 
-  .username::before {
-    content: "|";
-    margin-right: 5.5%;
-    opacity: .25;
+  > * {
+    padding: 2.4% 0;
   }
 
-  // &:first-child {
-  //   color: #4e9deb;
-  //   font-weight: $font-weight-heavy;
+  // &:last-child {
+  //   border-bottom: 2px solid rgba(255,255,255,.25);
   // }
+
+  .username::before {
+    border-left: 1px solid black;
+  }
+
+  // .username::before {
+  //   content: "|";
+  //   margin-right: 5.5%;
+  //   opacity: .25;
+  // }
+
+  &:first-child {
+    color: #F8AF3E;
+    font-weight: $font-weight-heavy;
+  }
 
     // .score::before {
     //   content: url('../../assets/rh-icon-award-ribbon.svg');
