@@ -5,21 +5,22 @@
 <article>
   <section>
     <hgroup>
-      <h1 class="leaders-header" data-text="Break Fix">Break<span class="hacker-svg">Fix</span></h1>
-      <h2 id="subtitle" class="challenge-subtitle fade" ng-view></h2>
+      <h1 class="leaders-header" data-text="Break Fix">Break Fix<span hidden class="hacker-svg">Fix</span></h1>
+      <h2 id="subtitle" class="challenge-subtitle"></h2>
+      <!-- <h3 id="issue" class="issue fade" ng-view ng-class="fade"></h3> -->
     </hgroup>
-    <ul class="leader-titles">
+    <ul class="leader-titles" hidden>
       <li>
         <span class="rank">Rank</span>
         <span class="username">User Name</span>
-        <span class="score">Time Completed (seconds)</span>
+        <span class="score">Time Completed</span>
       </li>
     </ul>
     <ul class="leaders">
       <li ng-repeat="leader in vm.leaders" ng-view class="fade">
         <span class="rank">{{::$index + 1 | ordinal}}</span>
         <span class="username">{{::leader.visitor}}</span>
-        <span class="score">{{::leader.score}}</span>
+        <span class="score">{{::leader.score + "s"}}</span>
       </li>
     </ul>
   </section>

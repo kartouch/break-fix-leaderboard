@@ -7,10 +7,9 @@ $color-grey:                 rgba(34,44,54,1);
 $color-white:           rgba(250,232,232,.95);
 $font-base:                              12px;
 $font-base-lg:                           18px;
-$font-heading:                          4.5em;
-$font-subtitle:                         2.2em;
-$font-table:                            1.7em;
-$font-titles:                           1.3em;
+$font-heading:                          3.8em;
+$font-medium:                           1.6em;
+$font-small:                            1.3em;
 $font-weight-light:                       500;
 $font-weight-bold:                        600;
 $font-weight-heavy:                       800;
@@ -40,22 +39,21 @@ body {
   font-family: 'Overpass', sans-serif;
   font-size: $font-base;
   font-weight: $font-weight-light;
-  height: 100%;
   margin: 0;
+  padding: 0;
 }
 
 pl-leaderboard {
   position: relative;
   height: 100%;
   z-index: 2;
-  color: $color-white;
 
   hgroup {
-    line-height: 1.4;
-    margin: 2% 0;
+    line-height: 1.5;
+    margin: 1.8% 0 4%;
 
     .leaders-header {
-      background-image: -webkit-linear-gradient($color-white, $color-grey);
+      background-image: -webkit-linear-gradient($color-white, #0f3c69);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       color: $color-white;
@@ -65,28 +63,33 @@ pl-leaderboard {
       text-transform: uppercase;
       word-wrap: normal;
       letter-spacing: 3px;
-      margin: 0 auto;
-
 
       .hacker-svg::before {
         content:url('../../assets/rh-icon-hacker.svg');
         display: inline-block;
-        width: 7%;
+        width: 5%;
       }
     }
 
     .challenge-subtitle {
-      font-size: $font-subtitle;
+      font-size: $font-medium;
       color: $color-white;
       text-align: center;
-      opacity: .8;
+      // line-height: 1.75;
     }
+
+    // .issue {
+    //   font-size: $font-medium;
+    //   color: $color-white;
+    //   text-align: center;
+    //   font-style: italic;
+    //   opacity: .8;
+    // }
   }
 
   article {
     margin: 0 auto;
     max-width: 70%;
-    max-height: 85%;
 
     section {
       width: 100%;
@@ -96,6 +99,9 @@ pl-leaderboard {
         padding: 0;
         max-width: 100%;
         list-style-type: none;
+        color: #f2d0d0;
+        // text-shadow: 1px 0px 5px #000;
+        // background-color: rgba(25,25,180,.25);
       }
     }
   }
@@ -109,18 +115,21 @@ pl-leaderboard {
 */
 
 ul.leader-titles {
-  margin-bottom: 1.5vh;
-  padding-bottom: 1vh;
-  border-bottom: 1px solid rgba(255, 255, 255, .2);
-  text-transform: lowercase;
+  margin-bottom: 1.2%;
+  // padding-bottom: 1vh;
+  // border-bottom: 1px solid rgba(255, 255, 255, .2);
 
   li {
-    font-size: $font-titles;
+    font-size: $font-small;
     font-weight: $font-weight-bold;
     text-transform: uppercase;
-    letter-spacing: .5px;
+    letter-spacing: 1px;
     padding: 0 2% .5%;
-    opacity: .675;
+    opacity: .8;
+
+    .username {
+      // padding-left: 1%;
+    }
   }
 }
 
@@ -137,42 +146,48 @@ pl-leaderboard article section ul li {
   align-items: center;
 
   .rank {
-    width: 12%;
-    max-width: 12%;
+    width: 8%;
+    max-width: 8%;
   }
 
   .username {
-    width:53%;
-    max-width: 53%;
+    width: 65%;
+    max-width: 65%;
     word-break: break-all;
   }
 
   .score {
-    width: 35%;
-    max-width: 35%;
+    width: 27%;
+    max-width: 27%;
     text-align: right;
   }
 }
 
 ul.leaders li {
-  background-color: rgba(102,0,0,.8);
+  // background-color: rgba(102,0,0,.8);
   border-bottom: 1px solid rgba(0,0,0,.5);
-  font-size: $font-table;
+  font-size: $font-medium;
   font-weight: $font-weight-heavy;
-  letter-spacing: 2px;
-  padding: 2.4% 2.55%;
+  letter-spacing: 2.2px;
+  padding: 2.3% 2.5%;
   height: 100%;
+  color: #bdccd1;
 
+  .username::before {
+    content: "|";
+    margin-right: 5.5%;
+    opacity: .25;
+  }
 
-  &:first-child {
-    // color: #f6c982;
-    font-weight: $font-weight-heavy;
+  // &:first-child {
+  //   color: #4e9deb;
+  //   font-weight: $font-weight-heavy;
+  // }
 
     // .score::before {
     //   content: url('../../assets/rh-icon-award-ribbon.svg');
     //   margin-right: 4%;
     // }
-  }
 
   // .score {
   //   display: flex;
@@ -190,13 +205,17 @@ ul.leaders li {
 
 @media (min-width: 1920px) {
 
+  hgroup .hacker-svg::before {
+    width: 8%;
+  }
+
   body {
     font-size: $font-base-lg;
   }
 
   pl-leaderboard article {
     margin: 0 auto;
-    max-width: 65%;
+    max-width: 60%;
     max-height: 80%;
   }
 }
@@ -208,15 +227,15 @@ ul.leaders li {
   -----------------------
 */
 
-pl-leaderboard article section ul.leaders li:first-child   { background-color: lighten(rgba(190,1,1,.50), 8%); }
-pl-leaderboard article section ul.leaders li:nth-child(2)  { background-color: lighten(rgba(180,1,1,.50), 8%); }
-pl-leaderboard article section ul.leaders li:nth-child(3)  { background-color: lighten(rgba(169,0,0,.50), 8%); }
-pl-leaderboard article section ul.leaders li:nth-child(4)  { background-color: lighten(rgba(160,0,0,.50), 8%); }
-pl-leaderboard article section ul.leaders li:nth-child(5)  { background-color: lighten(rgba(154,1,1,.50), 8%); }
-pl-leaderboard article section ul.leaders li:nth-child(6)  { background-color: lighten(rgba(145,1,1,.50), 8%); }
-pl-leaderboard article section ul.leaders li:nth-child(7)  { background-color: lighten(rgba(134,1,1,.50), 8%); }
-pl-leaderboard article section ul.leaders li:nth-child(8)  { background-color: lighten(rgba(124,0,0,.50), 8%); }
-pl-leaderboard article section ul.leaders li:nth-child(9)  { background-color: lighten(rgba(112,0,0,.50), 8%); }
-pl-leaderboard article section ul.leaders li:nth-child(10) { background-color: lighten(rgba(102,0,0,.50), 8%); }
+pl-leaderboard article section ul.leaders li:first-child   { background-color: rgba(190,1,1,.60); }
+pl-leaderboard article section ul.leaders li:nth-child(2)  { background-color: rgba(180,1,1,.60); }
+pl-leaderboard article section ul.leaders li:nth-child(3)  { background-color: rgba(169,0,0,.60); }
+pl-leaderboard article section ul.leaders li:nth-child(4)  { background-color: rgba(160,0,0,.60); }
+pl-leaderboard article section ul.leaders li:nth-child(5)  { background-color: rgba(154,1,1,.60); }
+pl-leaderboard article section ul.leaders li:nth-child(6)  { background-color: rgba(145,1,1,.60); }
+pl-leaderboard article section ul.leaders li:nth-child(7)  { background-color: rgba(134,1,1,.60); }
+pl-leaderboard article section ul.leaders li:nth-child(8)  { background-color: rgba(124,0,0,.60); }
+pl-leaderboard article section ul.leaders li:nth-child(9)  { background-color: rgba(112,0,0,.60); }
+pl-leaderboard article section ul.leaders li:nth-child(10) { background-color: rgba(102,0,0,.60); }
 
 @import "animations.scss";
