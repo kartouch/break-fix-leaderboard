@@ -11,15 +11,15 @@
 
     var baseurl = 'http://85.190.180.154/leaderboard/cee-su-',
         challenges = [
-          { endpoint: baseurl + "001", title: 'Red Hat JBoss EAP7' },
-          { endpoint: baseurl + "002", title: 'Red Hat JBoss EAP7 2' },
-          { endpoint: baseurl + "003", title: 'Red Hat Enterprise Linux 7' },
-          { endpoint: baseurl + "004", title: 'Red Hat Insights' },
-          { endpoint: baseurl + "005", title: 'Red Hat OpenShift' },
-          { endpoint: baseurl + "006", title: 'Red Hat OpenStack Platform' },
-          { endpoint: baseurl + "007", title: 'Red Hat OpenStack Platform 2' },
-          { endpoint: baseurl + "008", title: 'Red Hat Satellite' },
-          { endpoint: baseurl + "009", title: 'Red Hat Ceph Storage' }
+          { endpoint: baseurl + "001", title: 'Red Hat JBoss EAP7', issue: 'classloading issue'},
+          { endpoint: baseurl + "002", title: 'Red Hat JBoss EAP7', issue: 'logging issue'},
+          { endpoint: baseurl + "003", title: 'Red Hat Enterprise Linux 7', issue: ''},
+          { endpoint: baseurl + "004", title: 'Red Hat Insights', issue: ''},
+          { endpoint: baseurl + "005", title: 'Red Hat OpenShift', issue: ''},
+          { endpoint: baseurl + "006", title: 'Red Hat OpenStack Platform', issue: 'launching new instance'},
+          { endpoint: baseurl + "007", title: 'Red Hat OpenStack Platform', issue: 'deleting security group'},
+          { endpoint: baseurl + "008", title: 'Red Hat Satellite', issue: ''},
+          { endpoint: baseurl + "009", title: 'Red Hat Ceph Storage', issue: ''}
         ],
         i = 0,
         maxLeaders = 10,
@@ -27,7 +27,14 @@
         serviceUrl = challenges[i].endpoint;
 
     function setSubtitle($index) {
-      subtitle.innerHTML = challenges[$index].title;
+      setTimeout( function () {
+        if (challenges[$index].issue === "") {
+          subtitle.innerHTML = challenges[$index].title;
+        }
+        else {
+          subtitle.innerHTML = challenges[$index].title + " " + "<em style=\"color:#7992b0;\">{" + challenges[$index].issue + "}</em>";
+        }
+      }, 500);
     }
 
     function timerInterval() {
