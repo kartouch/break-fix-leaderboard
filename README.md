@@ -1,7 +1,7 @@
 # Break Fix Leaderboard
 
 Summit leaderboard for the Break Fix challenge.
-UPDATE: Friday, April 21st at 4:30pm
+UPDATE: Thursday, April 27th at 11:30am
 
 
 ## Development commands
@@ -25,10 +25,6 @@ leaderboard.js explains how the data is passed through.
 
 
 ## To Do:
-
-  Transition:
-    - Transition challenge subtitles: Needs improvement, but works!
-
 
   Local Overpass font
     - This might be a last minute addition (stay tuned)
