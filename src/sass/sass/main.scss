@@ -50,8 +50,8 @@ pl-leaderboard {
   z-index: 2;
 
   hgroup {
-    line-height: 1.45;
-    margin: 1.5% 0 2.3%;
+    line-height: 1.4;
+    margin: 1.2% 0 3.2%;
 
     .leaders-header {
       background-image: -webkit-linear-gradient(#F8AF3E, #ED5724);
@@ -70,7 +70,7 @@ pl-leaderboard {
       font-size: $font-medium;
       text-align: center;
       color: #b94b25;
-      font-weight: 600;
+      font-weight: 800;
     }
   }
 
@@ -118,15 +118,15 @@ pl-leaderboard {
 */
 
 ul.leader-titles {
-  margin-bottom: 1%;
+  margin-bottom: 1.1%;
 
   li {
     font-size: $font-small;
     font-weight: $font-weight-bold;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 0 1.8% .5%;
     opacity: .65;
+    padding: 0 1.75%;
   }
 }
 
@@ -141,12 +141,8 @@ pl-leaderboard article section ul.leaders li {
   font-size: $font-medium;
   font-weight: $font-weight-bold;
   letter-spacing: 2.4px;
-  padding: 0 2.55%;
+  padding: 2.28% 2.55%;
   height: 100%;
-
-  > * {
-    padding: 2.35% 0;
-  }
 
   &:first-child {
     color: #F8AF3E;
