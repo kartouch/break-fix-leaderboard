@@ -27,23 +27,12 @@
         serviceUrl = challenges[i].endpoint;
 
     function setSubtitle($index) {
-      setTimeout( function () {
-        if (challenges[$index].issue === "") {
-          subtitle.innerHTML = challenges[$index].title;
-        }
-        else {
-          subtitle.innerHTML = challenges[$index].title + " - " + "<span>" + challenges[$index].issue + "</span>";
-        }
-      }, 500);
-    }
-
-    function timerInterval() {
-      var interval = setInterval(function () {
-        i += 1;
-        i %= challenges.length;
-        serviceUrl = challenges[i].endpoint;
-        setSubtitle(i);
-      }, updateInterval);
+      if (challenges[$index].issue === "") {
+        subtitle.innerHTML = challenges[$index].title;
+      }
+      else {
+        subtitle.innerHTML = challenges[$index].title + " - " + "<span>" + challenges[$index].issue + "</span>";
+      }
     }
 
     function leaderboard() {
@@ -91,14 +80,17 @@
       var vm = this;
       vm.leaders = [];
 
-      setSubtitle(0);
-      timerInterval();
       $interval(getLeaders, updateInterval);
       getLeaders();
 
       function getLeaders() {
+        i += 1;
+        i %= challenges.length;
+        serviceUrl = challenges[i].endpoint;
+
         return leaderboardservice.getLeaders()
             .then(function (data) {
+                setSubtitle(i);
                 vm.leaders = data;
                 return vm.leaders;
             });
